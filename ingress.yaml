@@ -1,17 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata: 
-  name: ngnix-ingress
+  name: nginx-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  -  host: myapp.local
-     http:
-       paths:
-         - path: /
-           backend:
-             service:
-               name: ngnix-service
-               Port: 
-                 number: 80
+    - host: myapp.local  # Hostname for accessing the service
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-service  # Matches the Service name
+                port:
+                  number: 80  # Matches the Service port
