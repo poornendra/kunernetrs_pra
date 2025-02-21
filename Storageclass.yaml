@@ -3,4 +3,4 @@ kind: StorageClass
 metadata:
   name: ngnix-storage
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: WaitForFirstConsumer 
