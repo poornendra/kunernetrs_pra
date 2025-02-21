@@ -31,5 +31,3 @@ spec:
           persistentVolumeClaim:
             claimName: pvc-mysql
         
-        
-        
