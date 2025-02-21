@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngnix_deploy
+  labels: 
+    app: ngnix
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ngnix
+  template:
+    metadata: 
+      labels:
+        app: ngnix
+    spec:
+      containers:
+      - name: ngnix
+        image: ngnix:latest
+        ports:
+        - containerPort: 80
+        env: 
+          - name: mysql-Host
+            value: "my-sql"
+          - name: MYSQL_DATABASE
+            valueFrom: 
+              configMapKeyRef:
+                name: mysql-config
+                key: MYSQL_DATABASE
+          - name:  MYSQL_USER
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-config
+                key: MYSQL_USER
+          - name: MYSQL_PASSWORD
+            valueFrom: 
+              secretKeyRef:
+                name: mysql-secret
+                key: MYSQL_PASSWORD
+

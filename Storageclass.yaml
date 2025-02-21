@@ -1,0 +1,6 @@
+apiVersion: storage.k8s.io/v1  # in kubesystem we will have storage-provisioner
+kind: StorageClass
+metadata:
+  name: ngnix-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
