@@ -68,6 +68,18 @@ step 9 : create ingress
         here apiVerion will  be networking.k8s.io/v1 we need to give and in metadta we need to add 
         annotations: nginx.ingress.kubernetes.io/rewrite-target: /
         here in spec we need to add rules like host ,http, path, and serviceName and sericePort
+
+ C:\Windows\System32\drivers\etc\hosts (Windows): update host mith my app
+
+  Check MySQL Logs: kubectl logs -l app=my-sql
+  Test connecion to my sql: kubectl run mysql-client --rm -it --image=mysql:5.7 -- bash
+    and run inside the pod
+     mysql -h mysql -u myuser -ppassword -D mydatabase -e "SHOW TABLES;" 
+     
+     exit
+
+
+
         
 
 

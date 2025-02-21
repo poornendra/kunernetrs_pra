@@ -6,13 +6,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: myapp.local  # Hostname for accessing the service
+    - host: myapp.local  
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: nginx-service  # Matches the Service name
+                name: nginx-service  
                 port:
-                  number: 80  # Matches the Service port
+                  number: 80  
