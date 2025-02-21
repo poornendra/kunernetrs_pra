@@ -9,5 +9,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: ngnix-storage  
-  hostPath:
+  hostPkuath:
     path: "/mnt/data"  
